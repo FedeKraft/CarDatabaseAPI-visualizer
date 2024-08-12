@@ -23,7 +23,7 @@ const CarList: React.FC = () => {
                 <option value="Toyota">Toyota</option>
                 <option value="Honda">Honda</option>
                 <option value="Ford">Ford</option>
-                {/* Más opciones de marcas */}
+                {/* Puedes agregar más opciones de marcas aquí */}
             </select>
             <div className="car-list">
                 {cars.map((car, index) => (
@@ -33,9 +33,16 @@ const CarList: React.FC = () => {
                         onClick={() => setSelectedCar(car)}
                     >
                         <h3>{car.make} {car.model} ({car.year})</h3>
-                        <p>Engine Type: {car.engine_type}</p>
-                        <p>Horsepower: {car.horsepower} HP</p>
-                        <p>Transmission: {car.transmission}</p>
+                        <p><strong>Class:</strong> {car.class}</p>
+                        <p><strong>Engine Type:</strong> {car.engine_type}</p>
+                        <p><strong>Cylinders:</strong> {car.cylinders}</p>
+                        <p><strong>Displacement:</strong> {car.displacement} L</p>
+                        <p><strong>Drive Type:</strong> {car.drive}</p>
+                        <p><strong>Fuel Type:</strong> {car.fuel_type}</p>
+                        <p><strong>Transmission:</strong> {car.transmission}</p>
+                        <p><strong>City MPG:</strong> {car.city_mpg}</p>
+                        <p><strong>Highway MPG:</strong> {car.highway_mpg}</p>
+                        <p><strong>Combined MPG:</strong> {car.combination_mpg}</p>
                     </div>
                 ))}
             </div>

@@ -10,6 +10,14 @@ interface Car {
     engine_type: string;
     horsepower: number;
     transmission: string;
+    cylinders: number;
+    displacement: number;
+    drive: string;
+    fuel_type: string;
+    class: string;
+    city_mpg: number;
+    highway_mpg: number;
+    combination_mpg: number;
 }
 
 export const getCars = async (brand: string): Promise<Car[]> => {
