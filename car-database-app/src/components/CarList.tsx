@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getCars } from '../api';
-import CarDetails from './CarDetails';
 import '../styles/CarList.css';
 
 const CarList: React.FC = () => {
-    const [cars, setCars] = useState<any[]>([]);
-    const [brand, setBrand] = useState('Toyota');
-    const [selectedCar, setSelectedCar] = useState<any | null>(null);
+    const [cars, setCars] = React.useState<any[]>([]);
+    const [brand, setBrand] = React.useState('Toyota');
+    const navigate = useNavigate();
 
-    useEffect(() => {
+    React.useEffect(() => {
         const fetchCars = async () => {
             const carsData = await getCars(brand);
             setCars(carsData);
@@ -23,32 +23,26 @@ const CarList: React.FC = () => {
                 <option value="Toyota">Toyota</option>
                 <option value="Honda">Honda</option>
                 <option value="Ford">Ford</option>
-                {/* Puedes agregar más opciones de marcas aquí */}
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="BMW">BMW</option>
+                <option value="Audi">Audi</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Nissan">Nissan</option>
+                {/* Agrega más marcas aquí según sea necesario */}
             </select>
             <div className="car-list">
                 {cars.map((car, index) => (
                     <div
                         key={index}
                         className="car-card"
-                        onClick={() => setSelectedCar(car)}
+                        onClick={() => navigate(`/car-details/${index}`, { state: { car } })}
                     >
                         <h3>{car.make} {car.model} ({car.year})</h3>
-                        <p><strong>Class:</strong> {car.class}</p>
-                        <p><strong>Engine Type:</strong> {car.engine_type}</p>
-                        <p><strong>Cylinders:</strong> {car.cylinders}</p>
-                        <p><strong>Displacement:</strong> {car.displacement} L</p>
-                        <p><strong>Drive Type:</strong> {car.drive}</p>
-                        <p><strong>Fuel Type:</strong> {car.fuel_type}</p>
                         <p><strong>Transmission:</strong> {car.transmission}</p>
-                        <p><strong>City MPG:</strong> {car.city_mpg}</p>
-                        <p><strong>Highway MPG:</strong> {car.highway_mpg}</p>
-                        <p><strong>Combined MPG:</strong> {car.combination_mpg}</p>
+                        <p><strong>Fuel Type:</strong> {car.fuel_type}</p>
                     </div>
                 ))}
             </div>
-            {selectedCar && (
-                <CarDetails car={selectedCar} />
-            )}
         </div>
     );
 };

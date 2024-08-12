@@ -3,13 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import SearchBar from "./components/SearchBar";
+import CarList from "./components/CarList";
+import CarDetailsPage from "./components/CarDetailsPage";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const handleSearch = (query: string) => {
+    console.log("Search query:", query);
+};
 root.render(
   <React.StrictMode>
-    <App />
+      <Router>
+          <SearchBar onSearch={handleSearch} />
+          <Routes>
+              <Route path="/" element={<CarList />} />
+              <Route path="/car-details/:id" element={<CarDetailsPage />} />
+          </Routes>
+      </Router>
   </React.StrictMode>
 );
 
