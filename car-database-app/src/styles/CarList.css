@@ -9,5 +9,37 @@
     border: 1px solid #ddd;
     padding: 16px;
     border-radius: 8px;
-    width: calc(33.333% - 32px);
+    width: calc(100% - 32px); /* Full width on small screens */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeIn 0.5s ease-in-out;
+    text-align: center;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 600px) {
+    .car-card {
+        width: calc(50% - 32px); /* Two columns on medium screens */
+    }
+}
+
+@media (min-width: 900px) {
+    .car-card {
+        width: calc(33.333% - 32px); /* Three columns on large screens */
+    }
+}
+div {
+    align-items: center;
 }

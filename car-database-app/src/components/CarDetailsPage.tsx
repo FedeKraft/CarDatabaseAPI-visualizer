@@ -13,7 +13,12 @@ const CarDetailsPage: React.FC = () => {
         navigate('/');
         return null;
     }
-
+    const goHome = () => {
+        navigate('/');
+    };
+    const goBack = () => {
+        navigate(-1);
+    };
     return (
         <div className="car-details-page">
             <h2>{car.make} {car.model} ({car.year})</h2>
@@ -34,8 +39,12 @@ const CarDetailsPage: React.FC = () => {
                 <li><strong>Highway MPG:</strong> {car.highway_mpg}</li>
                 <li><strong>Combined MPG:</strong> {car.combination_mpg}</li>
             </ul>
+            <button onClick={goHome}>Ir a Home</button>
         </div>
+
+
     );
+
 };
 
 export default CarDetailsPage;

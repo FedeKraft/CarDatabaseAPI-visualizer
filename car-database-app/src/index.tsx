@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import SearchBar from "./components/SearchBar";
 import CarList from "./components/CarList";
 import CarDetailsPage from "./components/CarDetailsPage";
+import Spinner from "./components/Spinner";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -18,7 +18,6 @@ const handleSearch = (query: string) => {
 root.render(
   <React.StrictMode>
       <Router>
-          <SearchBar onSearch={handleSearch} />
           <Routes>
               <Route path="/" element={<CarList />} />
               <Route path="/car-details/:id" element={<CarDetailsPage />} />

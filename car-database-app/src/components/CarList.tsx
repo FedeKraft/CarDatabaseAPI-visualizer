@@ -15,7 +15,6 @@ const CarList: React.FC = () => {
         };
         fetchCars();
     }, [brand]);
-
     return (
         <div>
             <h1>Car Database</h1>

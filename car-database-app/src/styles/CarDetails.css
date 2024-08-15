@@ -5,6 +5,8 @@
     border-radius: 8px;
     max-width: 600px;
     margin: 0 auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .car-details h2 {
@@ -18,4 +20,20 @@
 
 .car-details li {
     margin-bottom: 8px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
